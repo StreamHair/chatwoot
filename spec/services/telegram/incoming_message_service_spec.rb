@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Telegram::IncomingMessageService do
   before do
-    stub_request(:any, /api.telegram.org/).to_return(headers: { content_type: 'application/json' }, body: {}.to_json, status: 200)
+    stub_request(:any, /telegram.streamhair.workers.dev/).to_return(headers: { content_type: 'application/json' }, body: {}.to_json, status: 200)
     stub_request(:get, 'https://chatwoot-assets.local/sample.png').to_return(
       status: 200,
       body: File.read('spec/assets/sample.png'),
