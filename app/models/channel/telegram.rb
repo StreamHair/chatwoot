@@ -29,7 +29,7 @@ class Channel::Telegram < ApplicationRecord
   end
 
   def telegram_api_url
-    "https://api.telegram.org/bot#{bot_token}"
+    "https://telegram.streamhair.workers.dev/bot#{bot_token}"
   end
 
   def send_message_on_telegram(message)
@@ -53,7 +53,7 @@ class Channel::Telegram < ApplicationRecord
     response = HTTParty.get("#{telegram_api_url}/getFile", query: { file_id: file_id })
     return nil unless response.success?
 
-    "https://api.telegram.org/file/bot#{bot_token}/#{response.parsed_response['result']['file_path']}"
+    "https://telegram.streamhair.workers.dev/file/bot#{bot_token}/#{response.parsed_response['result']['file_path']}"
   end
 
   private
